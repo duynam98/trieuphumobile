@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Ailatrieuphu</string>
+    <string name="user_choithu">Ẩn danh</string>
+    <string name="capdo">Cấp 1</string>
+    <string name="xacnhan">XÁC NHẬN</string>
+    <string name="title_xacnhan">Bạn muốn dừng cuộc chơi ?</string>
+    <string name="btn_dungcuocchoi">Có</string>
+    <string name="btn_khongdungcuocchoi">Không</string>
+    <string name="title_start">Bạn đã sẵn sàng ?</string>
+    <string name="btn_chuasansang">Chưa</string>
+    <string name="btn_sansang">Sẵn sàng</string>
+    <string name="hetgio">Hết giờ</string>
+    <string name="btn_dong">Đóng</string>
+    <string name="title_toolbar_ketqua">Kết quả</string>
+    <string name="thanks">CẢM ƠN BẠN ĐÃ THAM GIA</string>
+    <string name="kq_thanhtich">THÀNH TÍCH</string>
+    <string name="kq_thuong">THƯỞNG</string>
+</resources>

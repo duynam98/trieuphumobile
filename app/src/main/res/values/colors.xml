@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="bgtop_choithu">#053e93</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_cauhoi">#FFC107</color>
+    <color name="bg_label_dialog">#4690fe</color>
+    <color name="bg_black_dialog">#181818</color>
+    <color name="bg_toolbar">#1f1f1f</color>
+    <color name="bg_ketqua">#262626</color>
+
+</resources>
