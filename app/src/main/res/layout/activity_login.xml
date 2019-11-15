@@ -8,19 +8,19 @@
     android:background="@drawable/app__bg_home_no_logo">
 
 
-        <ImageView
-            android:id="@+id/img_light"
-            android:layout_width="@dimen/img_light_animation"
-            android:layout_height="@dimen/img_light_animation"
-            android:layout_marginStart="@dimen/margin_min"
-            android:layout_marginLeft="@dimen/margin_min"
-            android:layout_marginTop="@dimen/margin2"
-            android:layout_marginEnd="@dimen/margin_min"
-            android:layout_marginRight="@dimen/margin_min"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/app__bg_circle_light" />
+    <ImageView
+        android:id="@+id/img_light"
+        android:layout_width="@dimen/img_light_animation"
+        android:layout_height="@dimen/img_light_animation"
+        android:layout_marginStart="@dimen/margin_min"
+        android:layout_marginLeft="@dimen/margin_min"
+        android:layout_marginTop="@dimen/margin2"
+        android:layout_marginEnd="@dimen/margin_min"
+        android:layout_marginRight="@dimen/margin_min"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/app__bg_circle_light" />
 
         <ImageView
             android:id="@+id/img_logo"

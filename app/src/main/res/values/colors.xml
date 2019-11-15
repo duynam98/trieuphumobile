@@ -10,5 +10,6 @@
     <color name="bg_black_dialog">#181818</color>
     <color name="bg_toolbar">#1f1f1f</color>
     <color name="bg_ketqua">#262626</color>
+    <color name="linear_user">#053e93</color>
 
 </resources>

@@ -1,9 +1,7 @@
 package com.duynam.ailatrieuphu.activity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.database.SQLException;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -22,6 +20,7 @@ import com.duynam.ailatrieuphu.Media;
 import com.duynam.ailatrieuphu.R;
 import com.duynam.ailatrieuphu.adapter.DataAdapter;
 import com.duynam.ailatrieuphu.dialog.Dialog_Dungcuocchoi;
+import com.duynam.ailatrieuphu.dialog.Dialog_doicauhoi;
 import com.duynam.ailatrieuphu.dialog.Dialog_hetgio;
 import com.duynam.ailatrieuphu.model.Cauhoi;
 
@@ -33,29 +32,29 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChoithuActivity extends AppCompatActivity {
 
-    private CircleImageView circleImageView;
-    private ProgressBar progressBartime;
-    private TextView tvTime;
+    public CircleImageView circleImageView;
+    public ProgressBar progressBartime;
+    public TextView tvTime;
     CountDownTimer countDownTimer;
-    private ProgressBar time;
-    private TextView tvMonney;
-    private ImageView imageView3;
-    private ImageView imgDungcuocchoi;
-    private ImageView imgHelp50;
-    private ImageView imgHoiykienkhangia;
-    private ImageView imgNguoithan;
-    private TextView tvCauhoi;
-    private TextView tvSocauhoi;
-    private Button btnDaA, btnDaB, btnDaC, btnDaD;
-    private Media nhacnen;
+    public ProgressBar time;
+    public TextView tvMonney;
+    public ImageView imageView3;
+    public ImageView imgDungcuocchoi, imgdoicauhoi;
+    public ImageView imgHelp50;
+    public ImageView imgHoiykienkhangia;
+    public ImageView imgNguoithan;
+    public TextView tvCauhoi;
+    public TextView tvSocauhoi;
+    public Button btnDaA, btnDaB, btnDaC, btnDaD;
+    public Media nhacnen;
 
     Random rd;
     private Cauhoi cauhoi;
-    String daDung;
+    public String daDung;
     private DataAdapter adapter;
     int vtA, vtB, vtC;
-    int vitrihientai = 1;
-    int vitricauhoi;
+    public int vitrihientai = 1;
+    public int vitricauhoi;
     private ArrayList<Cauhoi> cauhoiList;
     private ArrayList<String> cautraloi;
     private ArrayList<Button> buttons;
@@ -69,7 +68,6 @@ public class ChoithuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choithu);
         initView();
         nhacnen = new Media(ChoithuActivity.this);
-        nhacnen.chaynhacnen(vitrihientai);
 
         handler = new Handler();
         rd = new Random();
@@ -87,6 +85,14 @@ public class ChoithuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Dialog_Dungcuocchoi dungcuocchoi = new Dialog_Dungcuocchoi(ChoithuActivity.this);
                 dungcuocchoi.show();
+            }
+        });
+
+        imgdoicauhoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog_doicauhoi dialog_doicauhoi = new Dialog_doicauhoi(ChoithuActivity.this);
+                dialog_doicauhoi.show();
             }
         });
 
@@ -135,6 +141,8 @@ public class ChoithuActivity extends AppCompatActivity {
         startTimer("stop");
         startTimer("start");
         clickabke(false);
+
+        nhacnen.chaynhacnen(vitrihientai);
 
     }
 
@@ -197,6 +205,7 @@ public class ChoithuActivity extends AppCompatActivity {
         imgHelp50 = findViewById(R.id.img_help50);
         imgHoiykienkhangia = findViewById(R.id.img_hoiykienkhangia);
         imgNguoithan = findViewById(R.id.img_nguoithan);
+        imgdoicauhoi = findViewById(R.id.img_doicauhoi);
         tvCauhoi = findViewById(R.id.tv_cauhoi);
         tvSocauhoi = findViewById(R.id.tv_socauhoi);
         btnDaA = findViewById(R.id.btn_daA);
@@ -221,7 +230,6 @@ public class ChoithuActivity extends AppCompatActivity {
                 public void onFinish() {
                     tvTime.setText("30");
                     progressBartime.setProgress(30);
-                    nhacnen.stop();
                     Dialog_hetgio dialog_hetgio = new Dialog_hetgio(ChoithuActivity.this, vitrihientai-1);
                     nhacnen.hetgio();
                     dialog_hetgio.show();
@@ -283,6 +291,7 @@ public class ChoithuActivity extends AppCompatActivity {
                             Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
                             intent.putExtra("socauhoi", vitrihientai-1);
                             startActivity(intent);
+                            finish();
                         }
                     };
                     handler.postDelayed(runnable, 6000);
@@ -336,6 +345,7 @@ public class ChoithuActivity extends AppCompatActivity {
                             Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
                             intent.putExtra("socauhoi", vitrihientai-1);
                             startActivity(intent);
+                            finish();
                         }
                     };
                     handler.postDelayed(runnable, 6000);
@@ -389,6 +399,7 @@ public class ChoithuActivity extends AppCompatActivity {
                             Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
                             intent.putExtra("socauhoi", vitrihientai-1);
                             startActivity(intent);
+                            finish();
                         }
                     };
                     handler.postDelayed(runnable, 6000);
@@ -442,6 +453,7 @@ public class ChoithuActivity extends AppCompatActivity {
                             Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
                             intent.putExtra("socauhoi", vitrihientai-1);
                             startActivity(intent);
+                            finish();
                         }
                     };
                     handler.postDelayed(runnable, 6000);
@@ -453,11 +465,12 @@ public class ChoithuActivity extends AppCompatActivity {
 
     private void animation() {
         Animation animation = AnimationUtils.loadAnimation(ChoithuActivity.this, R.anim.blink);
+        Animation blink_true = AnimationUtils.loadAnimation(ChoithuActivity.this, R.anim.blink_true);
         if (selectTrue) {
             for (int i = 0; i < buttons.size(); i++) {
                 if (buttons.get(i).getText().toString().equals(daDung)) {
                     buttons.get(i).setBackgroundResource(R.drawable.select_right);
-                    buttons.get(i).startAnimation(animation);
+                    buttons.get(i).startAnimation(blink_true);
                     nhacnen.chondung(i);
                 }
             }
@@ -509,5 +522,11 @@ public class ChoithuActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        nhacnen.onDestroy();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }

@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_xacnhan"
+            android:text="@string/title_doicauhoi"
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:layout_marginTop="@dimen/margin1"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/btn_co"
-                android:id="@+id/btn_dungcuocchoi"
+                android:id="@+id/btn_doicauhoi"
                 android:textAllCaps="false"
                 android:background="@drawable/custorm_button"
                 android:textColor="@color/white"

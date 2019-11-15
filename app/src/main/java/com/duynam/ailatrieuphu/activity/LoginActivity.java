@@ -15,7 +15,6 @@ import com.duynam.ailatrieuphu.dialog.Dialog_sansang;
 public class LoginActivity extends AppCompatActivity {
 
     private ImageView imgLight;
-    private ImageView imgLogo;
     private ImageView imgDangnhap;
     private ImageView imgChoithu;
 
@@ -36,11 +35,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        imgDangnhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ManHinhChinhActivity.class));
+            }
+        });
+
     }
 
     private void initView() {
         imgLight = findViewById(R.id.img_light);
-        imgLogo = findViewById(R.id.img_logo);
         imgDangnhap = findViewById(R.id.img_dangnhap);
         imgChoithu = findViewById(R.id.img_choithu);
     }

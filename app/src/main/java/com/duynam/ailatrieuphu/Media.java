@@ -10,7 +10,6 @@ public class Media {
     Context context;
     MediaPlayer nhacnen, nhacchondapan, nhacchonsai, nhacchondung, hetgio;
     Random random = new Random();
-    int length = 0;
 
     public Media(Context context) {
         this.context = context;
@@ -107,19 +106,14 @@ public class Media {
 
     public void onDestroy(){
         nhacnen.release();
-        nhacchondung.release();
-        nhacchonsai.release();
-        nhacchondapan.release();
     }
 
     public void pause(){
         nhacnen.pause();
-        length = nhacnen.getCurrentPosition();
     }
 
     public void  resumenhacnen(){
         nhacnen.start();
-        nhacnen.seekTo(length);
     }
 
 }

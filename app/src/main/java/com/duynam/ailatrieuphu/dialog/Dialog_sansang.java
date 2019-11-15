@@ -69,7 +69,6 @@ public class Dialog_sansang extends Dialog {
             public void run() {
                 getContext().startActivity(new Intent(getContext(), ChoithuActivity.class));
                 dismiss();
-                ((Activity) context).finish();
             }
         };
         handler.postDelayed(runnable, 4000);

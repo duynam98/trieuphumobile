@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/nav_group1">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/app__ic_sm_home"
+            android:title="@string/Manhinhchinh"
+            />
+        <item
+            android:id="@+id/nav_chondoithu"
+            android:icon="@drawable/app__ic_sm_challenge"
+            android:title="@string/chondoithu"
+            />
+        <item
+            android:id="@+id/nav_bangxephang"
+            android:icon="@drawable/app__ic_sm_leader"
+            android:title="@string/bangxephang"
+            />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/nav_group2">
+        <item
+            android:id="@+id/nav_caidat"
+            android:icon="@drawable/app__ic_sm_settings"
+            android:title="@string/caidat"
+            />
+        <item
+            android:id="@+id/nav_dangxuat"
+            android:icon="@drawable/app__ic_logout"
+            android:title="@string/dangxuat"
+            />
+    </group>
+
+
+
+</menu>

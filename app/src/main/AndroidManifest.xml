@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/noactionbar">
-        <activity android:name=".activity.KetquaActivity"
-            android:theme="@style/Custorm"
-            android:label="@string/title_toolbar_ketqua"></activity>
+        <activity android:name=".activity.ManHinhChinhActivity"
+            android:label="@string/home"></activity>
+        <activity
+            android:name=".activity.KetquaActivity"
+            android:label="@string/title_toolbar_ketqua"
+            android:theme="@style/Custorm" />
         <activity android:name=".activity.ChoithuActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity
