@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "526095427515",
+    "firebase_url": "https://ailatrieuphu-a34db.firebaseio.com",
+    "project_id": "ailatrieuphu-a34db",
+    "storage_bucket": "ailatrieuphu-a34db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526095427515:android:34e6f4cc8768c3feff869e",
+        "android_client_info": {
+          "package_name": "com.duynam.ailatrieuphu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526095427515-gbphf3jop9lu630k2eheis8lr58ilh64.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.duynam.ailatrieuphu",
+            "certificate_hash": "c921b43ffe86cee539f60e9bdecd121c38bdf261"
+          }
+        },
+        {
+          "client_id": "526095427515-br2mcviajdlaqmmuqb44e3dpfgej11ns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdGjym-zA4pJi-PCrQzzfI8XlEEl6raRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526095427515-vmgfvsdefa3m96vf5bviosdk5r67v2c9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
