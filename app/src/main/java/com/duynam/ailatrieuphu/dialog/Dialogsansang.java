@@ -17,14 +17,14 @@ import androidx.annotation.NonNull;
 import com.duynam.ailatrieuphu.R;
 import com.duynam.ailatrieuphu.activity.ChoithuActivity;
 
-public class Dialog_sansang extends Dialog {
+public class Dialogsansang extends Dialog {
 
     Context context;
     private Button btn_sansang, btn_cancel;
     MediaPlayer mediaPlayer, mediaPlayer1;
     boolean start = true, isStart = false;
 
-    public Dialog_sansang(@NonNull Context context) {
+    public Dialogsansang(@NonNull Context context) {
         super(context);
         this.context = context;
     }

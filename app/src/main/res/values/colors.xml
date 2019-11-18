@@ -11,5 +11,7 @@
     <color name="bg_toolbar">#1f1f1f</color>
     <color name="bg_ketqua">#262626</color>
     <color name="linear_user">#053e93</color>
+    <color name="yellow">#ffe53a</color>
+    <color name="black">#000</color>
 
 </resources>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.duynam.ailatrieuphu">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/noactionbar">
-        <activity android:name=".activity.ManHinhChinhActivity"
-            android:label="@string/home"></activity>
+        <activity android:name=".activity.BangxephangActivity"></activity>
+        <activity
+            android:name=".activity.ManHinhChinhActivity"
+            android:label="@string/home" />
         <activity
             android:name=".activity.KetquaActivity"
             android:label="@string/title_toolbar_ketqua"

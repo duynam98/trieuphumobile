@@ -2,7 +2,6 @@ package com.duynam.ailatrieuphu.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,14 +10,13 @@ import android.widget.Button;
 
 import com.duynam.ailatrieuphu.R;
 import com.duynam.ailatrieuphu.activity.ChoithuActivity;
-import com.duynam.ailatrieuphu.activity.KetquaActivity;
 
-public class Dialog_Dungcuocchoi extends Dialog {
+public class Dialogdoicauhoi extends Dialog {
 
     Activity activity;
-    Button btn_yes, btn_no;
+    Button btn_co, btn_khong;
 
-    public Dialog_Dungcuocchoi(Activity activity) {
+    public Dialogdoicauhoi(Activity activity) {
         super(activity);
         this.activity = activity;
     }
@@ -27,23 +25,20 @@ public class Dialog_Dungcuocchoi extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        setContentView(R.layout.dialog_dungcuocchoi);
+        setContentView(R.layout.dialog_doicauhoi);
+        btn_co = findViewById(R.id.btn_doicauhoi);
+        btn_khong = findViewById(R.id.btn_cancel);
 
-        btn_yes = findViewById(R.id.btn_dungcuocchoi);
-        btn_no = findViewById(R.id.btn_cancel);
-
-        btn_yes.setOnClickListener(new View.OnClickListener() {
+        btn_co.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int socauhoi = ((ChoithuActivity) activity).vitrihientai - 1;
-                Intent intent = new Intent(getContext(), KetquaActivity.class);
-                intent.putExtra("socauhoi", socauhoi);
-                getContext().startActivity(intent);
-                activity.finish();
+                ((ChoithuActivity) activity).loadcauhoi();
+                dismiss();
+                ((ChoithuActivity) activity).imgdoicauhoi.setBackgroundResource(R.drawable.app__ic_help_change_question_used);
             }
         });
 
-        btn_no.setOnClickListener(new View.OnClickListener() {
+        btn_khong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();

@@ -36,4 +36,11 @@
     <string name="dangxuat">Đăng xuất</string>
     <string name="home">Triệu phú Mobile</string>
     <string name="title_doicauhoi">Bạn có chắc chắn muốn đổi câu hỏi ?</string>
+    <string name="title_5050">Bạn có muốn bỏ hai đáp án sai ?</string>
+    <string name="help_goidien">Chuyên gia</string>
+    <string name="bacsi">Bác sĩ</string>
+    <string name="giaovien">Giáo viên</string>
+    <string name="phongvien">Phóng viên</string>
+    <string name="help_hoiykienkhangia">Hỏi ý kiến khán giả</string>
+    <string name="kysu">Kỹ sư</string>
 </resources>

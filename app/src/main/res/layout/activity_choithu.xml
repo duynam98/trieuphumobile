@@ -115,12 +115,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/img_dungcuocchoi"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/with_icon_help"
                 android:layout_margin="@dimen/margin_min"
                 android:layout_weight="1"
                 android:src="@drawable/app__ic_help_stop_active" />
@@ -128,34 +129,34 @@
             <ImageView
                 android:id="@+id/img_doicauhoi"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/margin3"
                 android:layout_margin="@dimen/margin_min"
                 android:layout_weight="1"
-                android:src="@drawable/app__ic_help_change_question_active" />
+                android:background="@drawable/app__ic_help_change_question_active" />
 
             <ImageView
                 android:id="@+id/img_help50"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/margin3"
                 android:layout_margin="@dimen/margin_min"
                 android:layout_weight="1"
-                android:src="@drawable/app__ic_help_5050_active" />
+                android:background="@drawable/app__ic_help_5050_active" />
 
             <ImageView
                 android:id="@+id/img_hoiykienkhangia"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/margin3"
                 android:layout_margin="@dimen/margin_min"
                 android:layout_weight="1"
-                android:src="@drawable/app_ic_help_call" />
+                android:background="@drawable/app_ic_help_call" />
 
             <ImageView
                 android:id="@+id/img_nguoithan"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/margin3"
                 android:layout_margin="@dimen/margin_min"
                 android:layout_weight="1"
-                android:src="@drawable/app_ic_nguoithan" />
+                android:background="@drawable/app_ic_nguoithan" />
         </LinearLayout>
 
         <FrameLayout

@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.duynam.ailatrieuphu.R;
+import com.duynam.ailatrieuphu.sharepreference.SaveLogin;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -51,8 +52,13 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 progressBar.setProgress(100);
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                finish();
+                if (SaveLogin.getEmail(SplashActivity.this) != null){
+                    startActivity(new Intent(SplashActivity.this, ManHinhChinhActivity.class));
+                    finish();
+                }else {
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    finish();
+                }
             }
         }.start();
     }

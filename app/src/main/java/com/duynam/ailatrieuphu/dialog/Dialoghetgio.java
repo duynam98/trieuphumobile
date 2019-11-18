@@ -17,18 +17,19 @@ import com.duynam.ailatrieuphu.Media;
 import com.duynam.ailatrieuphu.R;
 import com.duynam.ailatrieuphu.activity.KetquaActivity;
 
-public class Dialog_hetgio extends Dialog implements View.OnClickListener{
+public class Dialoghetgio extends Dialog implements View.OnClickListener{
 
-    int socauhoi;
+    int socauhoi, sodiem;
     Context context;
     Button btn_dong;
     MediaPlayer thanks;
     Media media;
 
-    public Dialog_hetgio(@NonNull Context context, int socauhoi) {
+    public Dialoghetgio(@NonNull Context context, int socauhoi, int sodiem) {
         super(context);
         this.context = context;
         this.socauhoi = socauhoi;
+        this.sodiem = sodiem;
     }
 
     @Override
@@ -50,6 +51,7 @@ public class Dialog_hetgio extends Dialog implements View.OnClickListener{
                 dismiss();
                 Intent intent = new Intent(getContext(), KetquaActivity.class);
                 intent.putExtra("socauhoi", socauhoi);
+                intent.putExtra("diem", sodiem);
                 getContext().startActivity(intent);
                 ((Activity) context).finish();
                 break;

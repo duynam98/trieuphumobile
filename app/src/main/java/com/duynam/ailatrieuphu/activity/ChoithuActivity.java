@@ -19,9 +19,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.duynam.ailatrieuphu.Media;
 import com.duynam.ailatrieuphu.R;
 import com.duynam.ailatrieuphu.adapter.DataAdapter;
-import com.duynam.ailatrieuphu.dialog.Dialog_Dungcuocchoi;
-import com.duynam.ailatrieuphu.dialog.Dialog_doicauhoi;
-import com.duynam.ailatrieuphu.dialog.Dialog_hetgio;
+import com.duynam.ailatrieuphu.dialog.Dialog5050;
+import com.duynam.ailatrieuphu.dialog.DialogDungcuocchoi;
+import com.duynam.ailatrieuphu.dialog.Dialogdoicauhoi;
+import com.duynam.ailatrieuphu.dialog.Dialoggoidien;
+import com.duynam.ailatrieuphu.dialog.Dialoghetgio;
+import com.duynam.ailatrieuphu.dialog.Dialoghoiykienkhangia;
 import com.duynam.ailatrieuphu.model.Cauhoi;
 
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ public class ChoithuActivity extends AppCompatActivity {
     public ProgressBar progressBartime;
     public TextView tvTime;
     CountDownTimer countDownTimer;
+    private long mTimeLeftInMillis = 10000;
     public ProgressBar time;
     public TextView tvMonney;
     public ImageView imageView3;
@@ -54,10 +58,10 @@ public class ChoithuActivity extends AppCompatActivity {
     private DataAdapter adapter;
     int vtA, vtB, vtC;
     public int vitrihientai = 1;
-    public int vitricauhoi;
+    public int vitricauhoi, sodiem = 0;
     private ArrayList<Cauhoi> cauhoiList;
     private ArrayList<String> cautraloi;
-    private ArrayList<Button> buttons;
+    public ArrayList<Button> buttons;
     private ArrayList<Integer> passedList;
     private Boolean selectTrue;
     private Handler handler;
@@ -77,13 +81,14 @@ public class ChoithuActivity extends AppCompatActivity {
         buttons = new ArrayList<>(Arrays.asList(btnDaA, btnDaB, btnDaC, btnDaD));
 
         loadDatabse();
-        data_Load();
+        loadcauhoi();
         chondapan();
+        nhacnen.chaynhacnen(vitrihientai);
 
         imgDungcuocchoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog_Dungcuocchoi dungcuocchoi = new Dialog_Dungcuocchoi(ChoithuActivity.this);
+                DialogDungcuocchoi dungcuocchoi = new DialogDungcuocchoi(ChoithuActivity.this);
                 dungcuocchoi.show();
             }
         });
@@ -91,12 +96,37 @@ public class ChoithuActivity extends AppCompatActivity {
         imgdoicauhoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog_doicauhoi dialog_doicauhoi = new Dialog_doicauhoi(ChoithuActivity.this);
-                dialog_doicauhoi.show();
+                Dialogdoicauhoi dialogdoicauhoi = new Dialogdoicauhoi(ChoithuActivity.this);
+                dialogdoicauhoi.show();
+            }
+        });
+
+        imgHelp50.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog5050 dialog5050 = new Dialog5050(ChoithuActivity.this);
+                dialog5050.show();
+            }
+        });
+
+        imgHoiykienkhangia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialoghoiykienkhangia dialoghoiykienkhangia = new Dialoghoiykienkhangia(ChoithuActivity.this);
+                dialoghoiykienkhangia.show();
+            }
+        });
+
+        imgNguoithan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialoggoidien dialoggoidien = new Dialoggoidien(ChoithuActivity.this);
+                dialoggoidien.show();
             }
         });
 
     }
+
 
     public void loadDatabse() {
         try {
@@ -111,7 +141,7 @@ public class ChoithuActivity extends AppCompatActivity {
         adapter.close();
     }
 
-    public void data_Load() {
+    public void loadcauhoi() {
         if (vitrihientai >= 1)
             randomQues();
         while (isPassed(vitricauhoi)) {
@@ -138,12 +168,10 @@ public class ChoithuActivity extends AppCompatActivity {
         buttons = new ArrayList<>(Arrays.asList(btnDaA, btnDaB, btnDaC, btnDaD));
         passedList.add(vitricauhoi);
 
-        startTimer("stop");
-        startTimer("start");
+        mTimeLeftInMillis = 10000;
+        pauseTimer();
+        startTimer();
         clickabke(false);
-
-        nhacnen.chaynhacnen(vitrihientai);
-
     }
 
     public void randomQues() {
@@ -193,6 +221,18 @@ public class ChoithuActivity extends AppCompatActivity {
         return cautraloi.get(answerData);
     }
 
+    public void help50() {
+        int dap1 = 0, dap2 = 0;
+        while (dap1 == dap2 || buttons.get(dap1).getText().toString().equals(daDung) || buttons.get(dap2).getText().toString().equals(daDung)) {
+            dap1 = rd.nextInt(buttons.size());
+            dap2 = rd.nextInt(buttons.size());
+        }
+        buttons.get(dap1).setText("");
+        buttons.get(dap1).setClickable(false);
+        buttons.get(dap2).setText("");
+        buttons.get(dap2).setClickable(false);
+    }
+
 
     private void initView() {
         circleImageView = findViewById(R.id.circleImageView);
@@ -215,32 +255,38 @@ public class ChoithuActivity extends AppCompatActivity {
     }
 
 
-    private void startTimer(String type) {
+    public void startTimer() {
 
-        if (type.equals("start")) {
-            countDownTimer = new CountDownTimer(10000, 1000) {
-                @Override
-                public void onTick(long leftTimeInMilliseconds) {
-                    long seconds = leftTimeInMilliseconds / 1000;
-                    progressBartime.setProgress((int) seconds);
-                    tvTime.setText(seconds + "");
-                }
-
-                @Override
-                public void onFinish() {
-                    tvTime.setText("30");
-                    progressBartime.setProgress(30);
-                    Dialog_hetgio dialog_hetgio = new Dialog_hetgio(ChoithuActivity.this, vitrihientai-1);
-                    nhacnen.hetgio();
-                    dialog_hetgio.show();
-                }
-            }.start();
-        } else {
-            if (countDownTimer != null) {
-                countDownTimer.cancel();
+        countDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long leftTimeInMilliseconds) {
+                long seconds = leftTimeInMilliseconds / 1000;
+                mTimeLeftInMillis = leftTimeInMilliseconds;
+                progressBartime.setProgress((int) seconds);
+                tvTime.setText(seconds + "");
             }
-        }
 
+            @Override
+            public void onFinish() {
+                if (vitrihientai == 16){
+                    Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
+                    intent.putExtra("socauhoi", vitrihientai);
+                    intent.putExtra("diem", sodiem);
+                    startActivity(intent);
+                }
+                tvTime.setText("30");
+                progressBartime.setProgress(30);
+                Dialoghetgio dialog_hetgio = new Dialoghetgio(ChoithuActivity.this, vitrihientai - 1, sodiem);
+                nhacnen.hetgio();
+                dialog_hetgio.show();
+            }
+        }.start();
+    }
+
+    public void pauseTimer() {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
     }
 
     private void chondapan() {
@@ -249,7 +295,7 @@ public class ChoithuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clickabke(true);
-                startTimer("stop");
+                pauseTimer();
                 btnDaA.setBackgroundResource(R.drawable.selected);
                 nhacnen.nhacchondapan('A');
                 nhacnen.pause();
@@ -267,6 +313,8 @@ public class ChoithuActivity extends AppCompatActivity {
                             btnDaA.setBackgroundResource(R.drawable.select_right);
                             animation();
                             nextcauhoi();
+                            nhacnen.chaynhacnen(vitrihientai);
+                            congdiem(vitrihientai);
                         }
                     };
                     timer1.start();
@@ -289,7 +337,8 @@ public class ChoithuActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
-                            intent.putExtra("socauhoi", vitrihientai-1);
+                            intent.putExtra("socauhoi", vitrihientai - 1);
+                            intent.putExtra("diem", sodiem);
                             startActivity(intent);
                             finish();
                         }
@@ -303,7 +352,7 @@ public class ChoithuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clickabke(true);
-                startTimer("stop");
+                pauseTimer();
                 btnDaB.setBackgroundResource(R.drawable.selected);
                 nhacnen.nhacchondapan('B');
                 nhacnen.pause();
@@ -321,6 +370,8 @@ public class ChoithuActivity extends AppCompatActivity {
                             btnDaB.setBackgroundResource(R.drawable.select_right);
                             animation();
                             nextcauhoi();
+                            nhacnen.chaynhacnen(vitrihientai);
+                            congdiem(vitrihientai);
                         }
                     };
                     timer1.start();
@@ -343,7 +394,8 @@ public class ChoithuActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
-                            intent.putExtra("socauhoi", vitrihientai-1);
+                            intent.putExtra("socauhoi", vitrihientai - 1);
+                            intent.putExtra("diem", sodiem);
                             startActivity(intent);
                             finish();
                         }
@@ -357,7 +409,7 @@ public class ChoithuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clickabke(true);
-                startTimer("stop");
+                pauseTimer();
                 btnDaC.setBackgroundResource(R.drawable.selected);
                 nhacnen.nhacchondapan('C');
                 nhacnen.pause();
@@ -375,6 +427,8 @@ public class ChoithuActivity extends AppCompatActivity {
                             btnDaC.setBackgroundResource(R.drawable.select_right);
                             animation();
                             nextcauhoi();
+                            nhacnen.chaynhacnen(vitrihientai);
+                            congdiem(vitrihientai);
                         }
                     };
                     timer1.start();
@@ -397,7 +451,8 @@ public class ChoithuActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
-                            intent.putExtra("socauhoi", vitrihientai-1);
+                            intent.putExtra("socauhoi", vitrihientai - 1);
+                            intent.putExtra("diem", sodiem);
                             startActivity(intent);
                             finish();
                         }
@@ -411,7 +466,7 @@ public class ChoithuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clickabke(true);
-                startTimer("stop");
+                pauseTimer();
                 btnDaD.setBackgroundResource(R.drawable.selected);
                 nhacnen.nhacchondapan('D');
                 nhacnen.pause();
@@ -429,6 +484,8 @@ public class ChoithuActivity extends AppCompatActivity {
                             btnDaD.setBackgroundResource(R.drawable.select_right);
                             animation();
                             nextcauhoi();
+                            nhacnen.chaynhacnen(vitrihientai);
+                            congdiem(vitrihientai);
                         }
                     };
                     timer1.start();
@@ -451,7 +508,8 @@ public class ChoithuActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Intent intent = new Intent(ChoithuActivity.this, KetquaActivity.class);
-                            intent.putExtra("socauhoi", vitrihientai-1);
+                            intent.putExtra("socauhoi", vitrihientai - 1);
+                            intent.putExtra("diem", sodiem);
                             startActivity(intent);
                             finish();
                         }
@@ -491,12 +549,29 @@ public class ChoithuActivity extends AppCompatActivity {
             final Runnable runnable = new Runnable() {
                 @Override
                 public void run() {
-                    data_Load();
+                    loadcauhoi();
                 }
             };
             handler.postDelayed(runnable, 3000);
             nhacnen.resumenhacnen();
         }
+    }
+
+    private void congdiem(int vitri){
+        if (vitri < 5){
+            sodiem = sodiem + 200000;
+        }else if (vitri == 6){
+            sodiem = 2000000;
+        }else if (sodiem < 10){
+            sodiem = sodiem + 200000;
+        }else if (vitri == 11){
+            sodiem = 15000000;
+        }else if (vitri < 15){
+            sodiem = sodiem + 200000;
+        }else if (vitri == 16){
+            sodiem = 100000000;
+        }
+        tvMonney.setText(sodiem+"");
     }
 
     private void clickabke(boolean click) {
@@ -520,13 +595,8 @@ public class ChoithuActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        nhacnen.onDestroy();
-    }
-
-    @Override
     protected void onStop() {
         super.onStop();
+        pauseTimer();
     }
 }

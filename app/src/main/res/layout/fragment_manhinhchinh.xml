@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/app__ic_logo_big" />
 
     <ImageView
-        android:id="@+id/img_dangnhap"
+        android:id="@+id/img_thachdau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin1"
@@ -44,13 +44,13 @@
         app:srcCompat="@drawable/thachdau" />
 
     <ImageView
-        android:id="@+id/img_choithu"
+        android:id="@+id/img_choidon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin1"
-        app:layout_constraintBottom_toTopOf="@+id/img_dangnhap"
-        app:layout_constraintEnd_toEndOf="@+id/img_dangnhap"
-        app:layout_constraintStart_toStartOf="@+id/img_dangnhap"
+        app:layout_constraintBottom_toTopOf="@+id/img_thachdau"
+        app:layout_constraintEnd_toEndOf="@+id/img_thachdau"
+        app:layout_constraintStart_toStartOf="@+id/img_thachdau"
         app:srcCompat="@drawable/choidon1" />
 
     <LinearLayout
@@ -66,7 +66,7 @@
             android:layout_width="@dimen/margin3"
             android:layout_height="@dimen/margin3"
             android:layout_margin="@dimen/margin_min"
-            android:src="@drawable/user_choithu" />
+            android:background="@drawable/user_choithu" />
 
         <LinearLayout
             android:layout_width="wrap_content"

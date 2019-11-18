@@ -17,20 +17,20 @@ public class Media {
 
     public void chaynhacnen(int vitri) {
         if (vitri == 1) {
-            nhacnen = MediaPlayer.create(context, R.raw.nhacnende);
+            nhacnen = MediaPlayer.create(context, R.raw.background_music);
         } else if (vitri == 6) {
             nhacnen.reset();
             nhacnen = MediaPlayer.create(context, R.raw.background_music_b);
-        }else if (vitri == 11){
+        } else if (vitri == 11) {
             nhacnen.reset();
             nhacnen = MediaPlayer.create(context, R.raw.nhacnenkho);
         }
-        nhacnen.setLooping(true);
         nhacnen.start();
+        nhacnen.setLooping(true);
     }
 
-    public void nhacchondapan(char pos){
-        switch (pos){
+    public void nhacchondapan(char pos) {
+        switch (pos) {
             case 'A':
                 int[] dapanA = {R.raw.ans_a, R.raw.ans_a2};
                 nhacchondapan = MediaPlayer.create(context, dapanA[random.nextInt(dapanA.length)]);
@@ -51,8 +51,8 @@ public class Media {
         nhacchondapan.start();
     }
 
-    public void chonsai(int pos){
-        switch (pos){
+    public void chonsai(int pos) {
+        switch (pos) {
             case 0:
                 int[] dapanA = {R.raw.lose_a, R.raw.lose_a2};
                 nhacchonsai = MediaPlayer.create(context, dapanA[random.nextInt(dapanA.length)]);
@@ -73,8 +73,8 @@ public class Media {
         nhacchonsai.start();
     }
 
-    public void chondung(int pos){
-        switch (pos){
+    public void chondung(int pos) {
+        switch (pos) {
             case 0:
                 int[] dapanA = {R.raw.true_a, R.raw.true_a2, R.raw.true_a3};
                 nhacchondung = MediaPlayer.create(context, dapanA[random.nextInt(dapanA.length)]);
@@ -95,24 +95,28 @@ public class Media {
         nhacchondung.start();
     }
 
-    public void hetgio(){
+    public void hetgio() {
         hetgio = MediaPlayer.create(context, R.raw.timeout);
         hetgio.start();
     }
 
-    public void stop(){
-        nhacnen.stop();
+    public void reset() {
+        if (nhacnen != null) {
+            nhacnen.release();
+        }
     }
 
-    public void onDestroy(){
+    public void onDestroy() {
         nhacnen.release();
     }
 
-    public void pause(){
-        nhacnen.pause();
+    public void pause() {
+        if (nhacnen != null) {
+            nhacnen.pause();
+        }
     }
 
-    public void  resumenhacnen(){
+    public void resumenhacnen() {
         nhacnen.start();
     }
 
