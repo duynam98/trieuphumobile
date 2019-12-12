@@ -36,10 +36,11 @@ public class DialogDungcuocchoi extends Dialog {
             @Override
             public void onClick(View v) {
                 int socauhoi = ((ChoithuActivity) activity).vitrihientai - 1;
-                int sodiem = ((ChoithuActivity) activity).sodiem;
-                Intent intent = new Intent(getContext(), KetquaActivity.class);
+                long sodiem = Long.parseLong(((ChoithuActivity) activity).tvMonney.getText().toString());
+                Intent intent = new Intent(getContext(), ((ChoithuActivity) activity).aClass);
                 intent.putExtra("socauhoi", socauhoi);
                 intent.putExtra("diem", sodiem);
+                intent.putExtra("diemdoithu", ((ChoithuActivity) activity).diemdoithu);
                 getContext().startActivity(intent);
                 activity.finish();
             }

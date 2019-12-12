@@ -8,7 +8,7 @@ import java.util.Random;
 public class Media {
 
     Context context;
-    MediaPlayer nhacnen, nhacchondapan, nhacchonsai, nhacchondung, hetgio;
+    MediaPlayer nhacnen, nhacchondapan, nhacchonsai, nhacchondung, hetgio, background_music;
     Random random = new Random();
 
     public Media(Context context) {
@@ -106,14 +106,17 @@ public class Media {
         }
     }
 
-    public void onDestroy() {
-        nhacnen.release();
+    public void startnhacnen() {
+        if (background_music != null){
+            background_music.release();
+        }
+        background_music  = MediaPlayer.create(context, R.raw.background_music);
+        background_music.start();
+        background_music.setLooping(true);
     }
 
     public void pause() {
-        if (nhacnen != null) {
-            nhacnen.pause();
-        }
+        nhacnen.pause();
     }
 
     public void resumenhacnen() {

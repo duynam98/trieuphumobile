@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="@dimen/img_rank"
+        android:layout_height="@dimen/img_rank"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_min"
+        android:background="@drawable/app__ic_rank_2" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_avatarrank"
+        android:layout_width="@dimen/margin3"
+        android:layout_height="@dimen/margin3"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_min"
+        android:background="@drawable/user_choithu" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_min"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_username_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hoàng Nguyễn"
+            android:textColor="@color/white"
+            android:textSize="@dimen/label"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 tỷ"
+            android:textStyle="italic"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>

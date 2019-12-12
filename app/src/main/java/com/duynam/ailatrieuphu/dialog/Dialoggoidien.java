@@ -64,7 +64,7 @@ public class Dialoggoidien extends Dialog {
             @Override
             public void onClick(View v) {
                 activity.imgNguoithan.setClickable(false);
-                activity.imgNguoithan.setBackgroundResource(R.drawable.app__ic_help_call_used);
+                activity.imgNguoithan.setImageResource(R.drawable.app__ic_help_call_used);
                 bg_help.setVisibility(View.INVISIBLE);
                 bg_help1.setVisibility(View.INVISIBLE);
                 cautraloi.setVisibility(View.VISIBLE);
@@ -81,7 +81,7 @@ public class Dialoggoidien extends Dialog {
             @Override
             public void onClick(View v) {
                 activity.imgNguoithan.setClickable(false);
-                activity.imgNguoithan.setBackgroundResource(R.drawable.app__ic_help_call_used);
+                activity.imgNguoithan.setImageResource(R.drawable.app__ic_help_call_used);
                 bg_help.setVisibility(View.INVISIBLE);
                 bg_help1.setVisibility(View.INVISIBLE);
                 cautraloi.setVisibility(View.VISIBLE);
@@ -98,7 +98,7 @@ public class Dialoggoidien extends Dialog {
             @Override
             public void onClick(View v) {
                 activity.imgNguoithan.setClickable(false);
-                activity.imgNguoithan.setBackgroundResource(R.drawable.app__ic_help_call_used);
+                activity.imgNguoithan.setImageResource(R.drawable.app__ic_help_call_used);
                 bg_help.setVisibility(View.INVISIBLE);
                 bg_help1.setVisibility(View.INVISIBLE);
                 cautraloi.setVisibility(View.VISIBLE);
@@ -115,7 +115,7 @@ public class Dialoggoidien extends Dialog {
             @Override
             public void onClick(View v) {
                 activity.imgNguoithan.setClickable(false);
-                activity.imgNguoithan.setBackgroundResource(R.drawable.app__ic_help_call_used);
+                activity.imgNguoithan.setImageResource(R.drawable.app__ic_help_call_used);
                 bg_help.setVisibility(View.INVISIBLE);
                 bg_help1.setVisibility(View.INVISIBLE);
                 cautraloi.setVisibility(View.VISIBLE);

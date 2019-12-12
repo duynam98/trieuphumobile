@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.ChoithuActivity">
+    tools:context=".activity.ChoithuActivity"
+    android:background="@drawable/app__bg_home_no_logo">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainlayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin3"
-        android:background="@color/bgtop_choithu">
+        android:background="@color/bgtop_choithu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
+            android:id="@+id/img_avatar"
             android:layout_width="@dimen/circleimage"
             android:layout_height="@dimen/circleimage"
             android:layout_marginLeft="@dimen/margin1"
@@ -23,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin1"
@@ -30,29 +36,19 @@
             android:text="@string/user_choithu"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView"
-            app:layout_constraintTop_toTopOf="@+id/circleImageView" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin1"
-            android:layout_marginLeft="@dimen/margin1"
-            android:text="@string/capdo"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView" />
+            app:layout_constraintBottom_toBottomOf="@+id/img_avatar"
+            app:layout_constraintStart_toEndOf="@+id/img_avatar"
+            app:layout_constraintTop_toTopOf="@+id/img_avatar" />
 
         <FrameLayout
+            android:id="@+id/layoutframe"
             android:layout_width="@dimen/margin3"
             android:layout_height="@dimen/margin3"
+            android:background="@drawable/circle64"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/layoutframe"
-            android:background="@drawable/circle64">
+            app:layout_constraintTop_toTopOf="parent">
 
             <ProgressBar
                 android:id="@+id/time"
@@ -87,11 +83,11 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="0"
+            android:textColor="@color/text_cauhoi"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/text_cauhoi"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -106,123 +102,187 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/img_dungcuocchoi"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_marginTop="@dimen/margin_min"
+        android:layout_weight="1"
+        android:src="@drawable/app__ic_help_stop_active"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constrainlayout" />
+
+    <ImageView
+        android:id="@+id/img_doicauhoi"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_weight="1"
+        android:src="@drawable/app__ic_help_change_question_active"
+        app:layout_constraintBottom_toBottomOf="@+id/img_dungcuocchoi"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/img_dungcuocchoi" />
+
+
+    <ImageView
+        android:id="@+id/img_help50"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_weight="1"
+        android:src="@drawable/app__ic_help_5050_active"
+        app:layout_constraintBottom_toBottomOf="@+id/img_doicauhoi"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/img_doicauhoi" />
+
+    <ImageView
+        android:id="@+id/img_hoiykienkhangia"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_weight="1"
+        android:src="@drawable/app_ic_help_call"
+        app:layout_constraintBottom_toBottomOf="@+id/img_help50"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/img_help50" />
+
+    <ImageView
+        android:id="@+id/img_nguoithan"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_weight="1"
+        android:src="@drawable/app_ic_nguoithan"
+        app:layout_constraintBottom_toBottomOf="@+id/img_hoiykienkhangia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/img_hoiykienkhangia" />
+
+
+    <Button
+        android:id="@+id/btn_daA"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_marginTop="@dimen/margin2"
+        android:background="@drawable/a"
+        android:textColor="@color/text_cauhoi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cauhoi" />
+
+    <Button
+        android:id="@+id/btn_daB"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_marginTop="@dimen/margin1"
+        android:background="@drawable/b"
+        android:textColor="@color/text_cauhoi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_daA" />
+
+    <Button
+        android:id="@+id/btn_daC"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_marginTop="@dimen/margin1"
+        android:background="@drawable/c"
+        android:textColor="@color/text_cauhoi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_daB" />
+
+    <Button
+        android:id="@+id/btn_daD"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_min"
+        android:layout_marginTop="@dimen/margin1"
+        android:background="@drawable/d"
+        android:textColor="@color/text_cauhoi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_daC" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
+
+    <TextView
+        android:id="@+id/tv_cauhoi"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/app__bg_home_no_logo"
-        android:orientation="vertical">
+        android:layout_height="190dp"
+        android:layout_gravity="center"
+        android:background="@drawable/border_blue"
+        android:gravity="center"
+        android:textColor="@color/text_cauhoi"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
 
-            <ImageView
-                android:id="@+id/img_dungcuocchoi"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/with_icon_help"
-                android:layout_margin="@dimen/margin_min"
-                android:layout_weight="1"
-                android:src="@drawable/app__ic_help_stop_active" />
+    <TextView
+        android:id="@+id/tv_socauhoi"
+        android:layout_width="145dp"
+        android:layout_height="30dp"
+        android:layout_gravity="top|center"
+        android:background="@drawable/custorm_socauhoi"
+        android:gravity="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-            <ImageView
-                android:id="@+id/img_doicauhoi"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/margin3"
-                android:layout_margin="@dimen/margin_min"
-                android:layout_weight="1"
-                android:background="@drawable/app__ic_help_change_question_active" />
 
-            <ImageView
-                android:id="@+id/img_help50"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/margin3"
-                android:layout_margin="@dimen/margin_min"
-                android:layout_weight="1"
-                android:background="@drawable/app__ic_help_5050_active" />
-
-            <ImageView
-                android:id="@+id/img_hoiykienkhangia"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/margin3"
-                android:layout_margin="@dimen/margin_min"
-                android:layout_weight="1"
-                android:background="@drawable/app_ic_help_call" />
-
-            <ImageView
-                android:id="@+id/img_nguoithan"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/margin3"
-                android:layout_margin="@dimen/margin_min"
-                android:layout_weight="1"
-                android:background="@drawable/app_ic_nguoithan" />
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:layout_marginTop="@dimen/margin1">
-
-            <TextView
-                android:id="@+id/tv_cauhoi"
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:background="@drawable/border_blue"
-                android:gravity="center"
-                android:textColor="@color/text_cauhoi"
-                android:textStyle="bold"
-                android:layout_marginLeft="@dimen/margin2"
-                android:layout_marginRight="@dimen/margin2"/>
-
-            <TextView
-                android:id="@+id/tv_socauhoi"
-                android:layout_width="145dp"
-                android:layout_height="30dp"
-                android:layout_gravity="top|center"
-                android:layout_marginBottom="@dimen/margin1"
-                android:background="@drawable/custorm_socauhoi"
-                android:gravity="center"
-                android:textStyle="bold" />
-        </FrameLayout>
-
-        <Button
-            android:id="@+id/btn_daA"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_min"
-            android:background="@drawable/a"
-            android:textColor="@color/text_cauhoi" />
-
-        <Button
-            android:id="@+id/btn_daB"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_min"
-            android:background="@drawable/b"
-            android:textColor="@color/text_cauhoi" />
-
-        <Button
-            android:id="@+id/btn_daC"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_min"
-            android:background="@drawable/c"
-            android:textColor="@color/text_cauhoi" />
-
-        <Button
-            android:id="@+id/btn_daD"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_min"
-            android:background="@drawable/d"
-            android:textColor="@color/text_cauhoi" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,5 +21,6 @@
     <dimen name="paddingTop">8dp</dimen>
     <dimen name="with_icon_help">60dp</dimen>
     <dimen name="img_head_menu">100dp</dimen>
+    <dimen name="img_rank">50dp</dimen>
 
 </resources>

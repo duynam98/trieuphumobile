@@ -15,21 +15,24 @@ import androidx.annotation.NonNull;
 
 import com.duynam.ailatrieuphu.Media;
 import com.duynam.ailatrieuphu.R;
+import com.duynam.ailatrieuphu.activity.ChoithuActivity;
 import com.duynam.ailatrieuphu.activity.KetquaActivity;
 
 public class Dialoghetgio extends Dialog implements View.OnClickListener{
 
-    int socauhoi, sodiem;
+    int socauhoi;
+    long sodiem;
     Context context;
     Button btn_dong;
-    MediaPlayer thanks;
     Media media;
+    ChoithuActivity activity;
 
-    public Dialoghetgio(@NonNull Context context, int socauhoi, int sodiem) {
+    public Dialoghetgio(@NonNull Context context, int socauhoi, long sodiem, ChoithuActivity activity) {
         super(context);
         this.context = context;
         this.socauhoi = socauhoi;
         this.sodiem = sodiem;
+        this.activity = activity;
     }
 
     @Override
@@ -39,19 +42,17 @@ public class Dialoghetgio extends Dialog implements View.OnClickListener{
         setContentView(R.layout.dialog_hetgio);
         btn_dong = findViewById(R.id.btn_dong);
         btn_dong.setOnClickListener(this);
-        media = new Media(getContext());
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_dong:
-                thanks = MediaPlayer.create(context, R.raw.thanks);
-                thanks.start();
                 dismiss();
-                Intent intent = new Intent(getContext(), KetquaActivity.class);
+                Intent intent = new Intent(getContext(), activity.aClass);
                 intent.putExtra("socauhoi", socauhoi);
                 intent.putExtra("diem", sodiem);
+                intent.putExtra("diemdoithu", activity.diemdoithu);
                 getContext().startActivity(intent);
                 ((Activity) context).finish();
                 break;

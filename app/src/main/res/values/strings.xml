@@ -43,4 +43,7 @@
     <string name="phongvien">Phóng viên</string>
     <string name="help_hoiykienkhangia">Hỏi ý kiến khán giả</string>
     <string name="kysu">Kỹ sư</string>
+    <string name="trangcanhan">Trang cá nhân</string>
+    <string name="setting">Tùy Chỉnh</string>
+    <string name="exit">Thoát</string>
 </resources>

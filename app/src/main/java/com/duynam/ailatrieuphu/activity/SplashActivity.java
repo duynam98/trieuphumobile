@@ -56,8 +56,13 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(new Intent(SplashActivity.this, ManHinhChinhActivity.class));
                     finish();
                 }else {
-                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                    finish();
+                    if (SaveLogin.getEmail(SplashActivity.this) != null) {
+                        startActivity(new Intent(SplashActivity.this, ManHinhChinhActivity.class));
+                        finish();
+                    } else {
+                        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                        finish();
+                    }
                 }
             }
         }.start();

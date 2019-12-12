@@ -40,7 +40,7 @@ public class Dialog5050 extends Dialog {
         btn_co.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.imgHelp50.setBackgroundResource(R.drawable.app__ic_help_5050_used);
+                activity.imgHelp50.setImageResource(R.drawable.app__ic_help_5050_used);
                 activity.imgHelp50.setClickable(false);
                 dismiss();
                 mediaPlayer = MediaPlayer.create(getContext(), R.raw.sound5050);

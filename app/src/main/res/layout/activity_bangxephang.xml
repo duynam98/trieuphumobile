@@ -13,20 +13,25 @@
         android:backgroundTint="@color/bg_toolbar">
 
         <ImageView
+            android:id="@+id/img_back"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:onClick="back_XH"
             android:src="@drawable/ic_arrow_back_black_24dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin1"
+            android:layout_marginLeft="@dimen/margin2"
             android:text="@string/bangxephang"
             android:textColor="@color/white"
             android:textSize="@dimen/label"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bg_label_dialog"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
@@ -35,7 +40,9 @@
         android:background="@drawable/custorm_tablayout"
         app:tabMode="fixed"
         app:tabTextColor="@color/white"
-        app:tabIndicatorColor="@color/bg_label_dialog"/>
+        app:tabIndicatorColor="@color/bg_label_dialog"
+        app:tabBackground="@drawable/tablayout_selector"
+        app:tabTextAppearance="@style/MyCustomTextAppearance"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -45,7 +52,8 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@color/bg_toolbar"/>
 
     </FrameLayout>
 

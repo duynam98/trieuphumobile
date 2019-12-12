@@ -8,17 +8,23 @@ public class User {
     public long score;
     public String level;
     public String timestamp;
+    public String month;
 
     public User() {
     }
 
-    public User(String email, String username, String photo, long score, String level, String timestamp) {
+    public User(String email, String username, String photo, long score, String level, String timestamp, String month) {
         this.email = email;
         this.username = username;
         this.photo = photo;
         this.score = score;
         this.level = level;
         this.timestamp = timestamp;
+        this.month = month;
+    }
+
+    public User(long score) {
+        this.score = score;
     }
 
     public String getEmail() {
@@ -67,5 +73,13 @@ public class User {
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 }

@@ -10,9 +10,9 @@ import com.duynam.ailatrieuphu.fragment.FragmentDiemcao;
 import com.duynam.ailatrieuphu.fragment.FragmentHomnay;
 import com.duynam.ailatrieuphu.fragment.FragmentThang;
 
-public class Bangxephangadapter extends FragmentPagerAdapter {
+public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    public Bangxephangadapter(@NonNull FragmentManager fm) {
+    public ViewPagerAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 

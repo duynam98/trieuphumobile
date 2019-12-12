@@ -2,17 +2,20 @@ package com.duynam.ailatrieuphu.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.duynam.ailatrieuphu.R;
 import com.duynam.ailatrieuphu.dialog.Dialogsansang;
+import com.duynam.ailatrieuphu.model.User;
 import com.duynam.ailatrieuphu.sharepreference.SaveLogin;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -20,6 +23,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.onesignal.OneSignal;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -44,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         Animation rote = AnimationUtils.loadAnimation(this, R.anim.rotate);
         imgLight.startAnimation(rote);
 
-        if (SaveLogin.getEmail(this) != null){
+        if (SaveLogin.getEmail(this) != null) {
             startActivity(new Intent(LoginActivity.this, ManHinhChinhActivity.class));
         }
 
@@ -63,6 +76,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
+
     }
 
     @Override
@@ -71,8 +89,10 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
-            startActivity(new Intent(LoginActivity.this, ManHinhChinhActivity.class));
-            finish();
+            if (SaveLogin.getEmail(LoginActivity.this) != null) {
+                startActivity(new Intent(LoginActivity.this, ManHinhChinhActivity.class));
+                finish();
+            }
         }
     }
 
@@ -80,9 +100,9 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             email = account.getEmail();
-            if (account.getPhotoUrl() != null){
+            if (account.getPhotoUrl() != null) {
                 photo = account.getPhotoUrl().toString();
-            }else {
+            } else {
                 photo = null;
             }
             name = account.getDisplayName();
@@ -94,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void signIn(){
+    private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -104,4 +124,5 @@ public class LoginActivity extends AppCompatActivity {
         imgDangnhap = findViewById(R.id.img_dangnhap);
         imgChoithu = findViewById(R.id.img_choithu);
     }
+
 }

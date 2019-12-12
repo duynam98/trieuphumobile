@@ -34,7 +34,8 @@ public class Dialogdoicauhoi extends Dialog {
             public void onClick(View v) {
                 ((ChoithuActivity) activity).loadcauhoi();
                 dismiss();
-                ((ChoithuActivity) activity).imgdoicauhoi.setBackgroundResource(R.drawable.app__ic_help_change_question_used);
+                ((ChoithuActivity) activity).imgdoicauhoi.setImageResource(R.drawable.app__ic_help_change_question_used);
+                ((ChoithuActivity) activity).imgdoicauhoi.setClickable(false);
             }
         });
 
